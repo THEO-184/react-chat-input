@@ -42,6 +42,7 @@ class TagNode extends DecoratorNode<React.ReactNode> {
 
   exportJSON(): SerializedTextNode {
     throw new Error('todo: exportJSON()')
+    // Todo return seriliazed veersion of nodes
   }
 
   isInline(): boolean {
@@ -67,6 +68,7 @@ class TagNode extends DecoratorNode<React.ReactNode> {
 
   static importJSON(node: SerializedTextNode): TagNode {
     throw new Error('todo: importJSON')
+    // return tagNode.clone
   }
 }
 

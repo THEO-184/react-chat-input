@@ -1,6 +1,7 @@
 import {
   COMMAND_PRIORITY_EDITOR,
   CONTROLLED_TEXT_INSERTION_COMMAND,
+  CUT_COMMAND,
   DELETE_CHARACTER_COMMAND,
   FORMAT_TEXT_COMMAND,
   KEY_ENTER_COMMAND,
@@ -13,6 +14,7 @@ import handleControlledTextInsertion from '../lib/handle-controlled-text-inserti
 import handleEnter from '../lib/handle-enter'
 import handleNewline from '../lib/handle-newline'
 import handleTextDeletion from '../lib/handle-text-deletion'
+import handleTextCut from '../lib/handle-text-cut'
 import handleTextFormat from '../lib/handle-text-format'
 import handleTextPaste from '../lib/handle-text-paste'
 import { mergeRegister } from '@lexical/utils'
@@ -52,6 +54,11 @@ const commandHandles: CommandHandles[] = [
   {
     command: PASTE_COMMAND,
     handler: handleTextPaste,
+    priority: COMMAND_PRIORITY_EDITOR,
+  },
+  {
+    command: CUT_COMMAND,
+    handler: handleTextCut,
     priority: COMMAND_PRIORITY_EDITOR,
   },
 ]
