@@ -41,7 +41,16 @@ class TagNode extends DecoratorNode<React.ReactNode> {
   }
 
   exportJSON(): SerializedTextNode {
-    throw new Error('todo: exportJSON()')
+    return {
+      detail: 6,
+      format: 6,
+      mode: 'normal',
+      style: 'seriliazed',
+      text: this.text,
+      type: this.type,
+      version: 6,
+    }
+    // throw new Error('todo: exportJSON()')
     // Todo return seriliazed veersion of nodes
   }
 
@@ -67,7 +76,14 @@ class TagNode extends DecoratorNode<React.ReactNode> {
   }
 
   static importJSON(node: SerializedTextNode): TagNode {
-    throw new Error('todo: importJSON')
+    // throw new Error('todo: importJSON')
+    const importNode = $createTagNode({
+      prefix: node.text,
+      text: node.text,
+      type: node.type,
+      value: node.format,
+    })
+    return importNode
     // return tagNode.clone
   }
 }
